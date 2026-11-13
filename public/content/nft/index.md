@@ -1,101 +1,126 @@
 ---
 title: Non-fungible tokens (NFT)
-metaTitle: What are NFTs? | Benefits and use
-description: "What are NFTs? Learn how non-fungible tokens prove ownership of digital art, collectibles, tickets and more on Ethereum, and how to stay safe using them."
+metaTitle: What are NFTs? | How they work and their limits
+description: "What are NFTs? Learn how non-fungible tokens record ownership on Ethereum, what a token does and does not give you, and the risks to watch for."
 lang: en
 template: use-cases
 sidebarDepth: 2
 image: /images/infrastructure_transparent.png
 alt: An Eth logo being displayed via hologram.
 summaryPoints:
-  - "A way to represent anything unique as an Ethereum-based asset."
-  - "NFTs are giving more power to content creators than ever before."
-  - "Powered by smart contracts on the Ethereum blockchain."
+  - "A token standard for issuing and tracking individual items on Ethereum."
+  - "The ownership record is onchain. The file the token points to is usually stored elsewhere."
+  - "Powered by smart contracts that follow shared standards such as ERC-721 and ERC-1155."
 ---
 
 ## What are NFTs? {#what-are-nfts}
 
-NFTs are tokens that are **individually unique**. Each NFT has different properties (non-fungible) and is provably scarce. This is different from tokens such as [ETH](/glossary/#ether) or other [Ethereum](/) based tokens like USDC where every token is identical and has the same properties ('fungible'). You don't care which specific dollar bill (or ETH) you have in your wallet, because they are all identical and worth the same. However, you _do_ care which specific NFT you own, because they all have individual properties that distinguish them from others ('non-fungible').
+A **non-fungible token (NFT)** is a token with its own identity on Ethereum. A smart contract records an identifier and the address that currently holds it. That differs from ether, where every unit spends the same and you do not care which one is in your wallet. You do care which NFT you hold, because one token does not stand in for another.
 
-The uniqueness of each NFT enables tokenization of things like art, collectibles, or even real estate, where one specific unique NFT represents some specific unique real world or digital item. Ownership of an asset is publicly verifiable on Ethereum [blockchain](/glossary/#blockchain).
+People point tokens at art, tickets, collectibles, names, and real-world assets. The holding is public on Ethereum's blockchain. A license, not the token, decides what you may do with the work.
 
 <VideoWatch slug="learn-nfts-and-defi" />
 
-## The internet of assets {#internet-of-assets}
+## What does NFT stand for? {#what-does-nft-stand-for}
 
-NFTs and Ethereum solve some of the problems that exist on the internet today. As everything becomes more digital, there's a need to replicate the properties of physical items like scarcity, uniqueness, and proof of ownership in a way that isn't controlled by a central organization. For example, with NFTs, you can own a music mp3 file across all Ethereum based apps and not be bound to one company's specific music app like Spotify or Apple Music. You can own a social media handle that you can sell or swap, but **can't be arbitrarily taken away from you** by a platform provider.
+NFT stands for **non-fungible token**.
 
-Here's how an internet of NFTs compared to the internet most of us use today looks...
+Fungible means one unit spends like any other, as a dollar bill does. Non-fungible means this token is not a stand-in for that one. Two tokens can share an artwork, and an edition of identical tickets is still a set of NFTs. The standard does not cap supply. The mint rules do, and you have to read them.
 
-### A comparison {#nft-comparison}
+## How do NFTs work? {#how-nfts-work}
 
-| An NFT internet                                                                                                         | The internet today                                                                                                                                     |
-| ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **You own your assets!** Only you can sell or swap them.                                                                    | **You rent an asset** from some organization and it can be taken away from you.                                                                            |
-| NFTs are **digitally unique**, no two NFTs are the same.                                                                    | **A copy often cannot be distinguished** from the original.                                                                                   |
-| Ownership of an NFT is stored on the blockchain for anyone to **verify publicly**.                                                   | The access to ownership records of digital items is **controlled by institutions** – you must take their word for it.                                 |
-| NFTs are [smart contracts](/glossary/#smart-contract) on Ethereum. This means they **can easily be used in other smart contracts** and apps on Ethereum! | Companies with digital items usually **require their own "walled garden" infrastructure**.                                                                 |
-| Content **creators can sell their work anywhere** and can access a global market.                                           | Creators rely on the infrastructure and distribution of the platforms they use. These are often subject to terms of use and **geographical restrictions**. |
-| NFT creators **can retain ownership rights** over their own work, and program royalties directly into the NFT contract.     | Platforms, such as music **streaming services, retain the majority of profits from sales**.                                                                |
+A smart contract mints the tokens, records which address holds each ID, and stores a link to metadata. ERC-721 gives each ID one holder. ERC-1155 can issue many copies of one ID, which is how a run of identical tickets usually works. The same standards run on layer 2 networks that settle to Ethereum. Only the holder, or a contract they approved, can transfer the token. The file itself is usually another link inside the metadata.
+
+After the transfer is [finalized](/glossary/#finality), reverting it means destroying more than one third of all staked ether. Finality does not cap the supply or assign the copyright.
+
+### Where is the file stored? {#where-is-the-file-stored}
+
+The media usually sits on the **InterPlanetary File System (IPFS)** or a web server. If the host goes away, the token remains and the file does not.
+
+A 2022 study of OpenSea assets found 88.71% of asset URLs and 80.69% of metadata URLs on ordinary web domains. From June–December 2021, 3.91% of the IPFS images and 9.04% of the IPFS metadata in that set stopped resolving. An IPFS link makes a swapped file detectable. It does not store the bytes for you, and some contracts let the owner change the link later.
 
 ## What are NFTs used for? {#nft-use-cases}
 
-NFTs are used for many things, including:
+People use NFTs for attendance, course certificates, game items, digital art, real-world assets, names such as ENS names, gated content, tickets, and collateral in decentralized finance.
 
-- proving that you attended an event
-- certify that you completed a course
-- ownable items for games
-- digital art
-- tokenizing [real-world assets](/real-world-assets/)
-- proving your online identity
-- gating access to content
-- ticketing
-- decentralized internet domain names
-- collateral in [decentralized finance](/glossary/#defi)
+A creator deploys a contract, sets the supply, and attaches a link to the work. Holding a token shows it came from that contract. It does not show the contract is the creator people expect. Copies that reuse a collection's art are common, so match the address to one the creator published.
 
-Maybe you are an artist that wants to share their work using NFTs, without losing control and sacrificing your profits to intermediaries. You can create a new contract and specify the number of NFTs, their properties and a link to some specific artwork. As the artist, **you can program into the smart contract the royalties** you should be paid (e.g., transfer 5% of the sale price to the contract owner each time an NFT is transferred). You can also always prove that you created the NFTs because you own the [wallet](/glossary/#wallet) that deployed the contract. Your buyers can easily prove that they own an **authentic NFT** from your collection because their wallet [address](/glossary/#address) is associated with a token in your smart contract. They can use it across the Ethereum ecosystem, confident in its authenticity.
+Tickets can move between wallets without a box office, and the contract can cap the supply. The contract address shows which contract issued the ticket. It does not, by itself, show that the organizer deployed it, and the venue decides whether to accept the token at the door.
+
+ethereum.org has used NFTs to recognize contributors, translators, and call attendees. They are listed on the [collectibles](/collectibles/) page. **Proof of Attendance Protocol (POAP)**, the protocol behind many of them, stopped new issuers on 16-Mar-2026 and on 3-Aug-2026 said the company was winding down. Nearly 7.6 million POAPs remain onchain. The company's website and file hosting may not.
+
+![An ethereum.org POAP, a collectible minted for contributors](./poap.png)
+
+The site's **ethereum.eth** name is a token, registered with the **Ethereum Name Service (ENS)**, unlike the `.org` name. [Check the ENS record](https://app.ens.domains/name/ethereum.eth).
 
 <Alert variant="update">
 <AlertEmoji text=":eyes:"/>
 <AlertContent className="justify-between flex-row items-center">
-  <div>Explore, buy or create your own NFT art/collectibles...</div>
+  <div>See apps in the collectibles category.</div>
   <ButtonLink href="/apps/categories/collectibles">
-    Explore NFT art
+    Explore collectibles
   </ButtonLink>
 </AlertContent>
 </Alert>
 
-Or consider a ticket to a sporting event. Just as an **organizer of an event can choose how many tickets to sell**, the creator of an NFT can decide how many replicas exist. Sometimes these are exact replicas, such as 5000 General Admission tickets. Sometimes several are minted that are very similar, but each slightly different, such as a ticket with an assigned seat. These can be bought and sold peer-to-peer without paying ticket handlers and the buyer always with assurance of the ticket authenticity by checking the contract address.
+## What does owning an NFT give you? {#what-owning-an-nft-gives-you}
 
-On ethereum.org, **NFTs are used to demonstrate that people have meaningfully contributed** to our GitHub repository (programmed the website, written or modified an article...), translated our content, or attended our community calls, and we've even got our own NFT domain name. If you contribute to ethereum.org, you can claim a [POAP](/glossary/#poap) NFT. Some crypto meetups have used POAPs as tickets. [More on contributing](/contributing/#poap). You can also explore our [ethereum.org collectibles](/collectibles/) page to see community achievement NFTs.
+You own a record: the contract lists your address, you can transfer the token, and any Ethereum app can see that without an account at one company.
 
-![ethereum.org POAP](./poap.png)
+You do not automatically own the copyright. A 12-Mar-2024 report to Congress, from the U.S. Copyright Office and the U.S. Patent and Trademark Office, says transferring an NFT transfers the token, not the copyright. A separate agreement licenses or assigns those rights. The contract can point at those terms. Whether code alone meets the signed-writing rule is unsettled.
 
-This website also has an alternative domain name powered by NFTs, **ethereum.eth**. Our `.org` address is centrally managed by a domain name system (DNS) provider, whereas ethereum`.eth` is registered on Ethereum via the Ethereum Name Service (ENS). And it's owned and managed by us. [Check our ENS record](https://app.ens.domains/name/ethereum.eth)
+An app can check what you hold. A song, a game item, or entry to an event still depends on the license, and on that app choosing to honor it. An NFT is not a music file that plays in every app.
 
-[More on ENS](https://app.ens.domains)
+## How do NFTs compare with a platform account? {#nft-comparison}
 
-<Divider />
+| An NFT | A typical platform account |
+| --- | --- |
+| **You hold the token.** Only you can transfer it. The file usually lives offchain. | **The platform holds the account** and can close it. |
+| **Other apps can read what you hold.** | Each company runs a closed system. |
+| **You can list a token wherever the standard is supported.** A few marketplaces handle most of the volume, each with its own rules, fees, and regional limits. | Creators depend on one platform's terms and country rules. |
+| **A creator can publish a royalty rate.** Since 2023, major marketplaces have treated it as optional. | The platform sets the revenue split and can change it. |
 
-## How do NFTs work? {#how-nfts-work}
+## Where do NFTs stand today? {#where-nfts-stand-today}
 
-NFTs, like any digital items on the Ethereum blockchain, are created through a special Ethereum based computer program called a "smart contract". These contracts follow certain rules, like the [ERC-721](/glossary/#erc-721) or [ERC-1155](/glossary/#erc-1155) standards, which determine what the contract can do.
+DappRadar put 2021 volume above $23 billion. Reuters, citing DappRadar, reported about $25 billion of sales that year. For 2025, DappRadar reported $867 million in the second quarter, down 45% from the previous quarter. Other write-ups of that release say about $823 million. The third quarter was $1.58 billion across 18.1 million sales. Dollar volume fell much harder than the number of sales. Totals cover many chains and include wash trades. This page quotes no 2026 figure, because DappRadar had not published a quarterly report for that year.
 
-The NFT smart contract can do a few key things:
+## What are the limits? {#nft-limits}
 
-- **Create NFTs:** It can make new NFTs.
-- **Assign Ownership:** It keeps track of who owns which NFTs by linking them to specific Ethereum addresses.
-- **Give Each NFT an ID:** Each NFT has a number that makes it unique. Additionally, there's usually some information (metadata) attached to it, describing what the NFT represents.
+### Royalties are not automatic {#royalties}
 
-When someone "creates" or "mints" an NFT, they're basically telling the smart contract to give them ownership of a particular NFT. This information is securely and publicly stored in the blockchain.
+ERC-2981 lets a creator publish a rate, for example 5% of a resale, and the address that should receive it. Marketplaces can read that value. The transfer itself does not collect the fee, and the recipient is not automatically the contract owner.
 
-Furthermore, the creator of the contract can add extra rules. They might limit how many of a certain NFT can be made or decide that they should get a small royalty fee whenever the NFT changes hands.
+On 17-Aug-2023 OpenSea made fees on new collections optional from 31-Aug-2023, and ended enforcement for filtered collections on 29-Feb-2024. Other large marketplaces had already dropped required fees or cut them. A contract can block transfers that skip a paying venue. Those tokens trade only where that block is supported.
 
-### NFT security {#nft-security}
+### The copyright stays with the creator {#copyright}
 
-Ethereum's security comes from [proof-of-stake](/glossary/#pos). The system is designed to economically disincentivize malicious actions, making Ethereum tamper-proof. This is what makes NFTs possible. Once the [block](/glossary/#block) containing your NFT transaction becomes [finalized](/glossary/#finality) it would cost an attacker millions of ETH to change it. Anyone running Ethereum software would immediately be able to detect dishonest tampering with an NFT, and the bad actor would be economically penalized and ejected.
+Anyone can mint a token that points at art they do not own. The chain records who deployed the contract. It does not check the copyright. Copying or selling the work still needs a license.
 
-Security issues relating to NFTs are most often related to phishing scams, smart contract vulnerabilities or user errors (such as inadvertently exposing private keys), making good wallet security critical for NFT owners.
+### The file can disappear {#file-permanence}
+
+A dead host can leave a blank image on a token you still own. An editable link can change the picture after the sale. Content addressing shows the swap. It does not keep the file online.
+
+### Energy use after The Merge {#energy-use}
+
+Before The Merge, Ethereum used proof-of-work, and a mint drew on the same energy as any other transaction. Moving to proof-of-stake cut annualized electricity use by more than 99.988%, the Crypto Carbon Ratings Institute estimates. One NFT transaction on today's network is negligible beside that older cost. Figures and the source are on the [energy consumption](/energy-consumption/) page.
+
+## How do you get an NFT? {#how-to-get-an-nft}
+
+1. Create a [wallet](/wallets/) and keep the keys. The contract records the token on that address.
+2. Get a little [ETH](/get-eth/) for the fee, plus the price if you are buying.
+3. Take a transfer, mint from a contract, or buy where the token standard is supported.
+
+ethereum.org does not recommend a marketplace. Match the contract to an address the creator published, and read every approval. One approval can let another contract move everything in the wallet.
+
+## What are the risks? {#nft-security}
+
+A finalized ownership record is extremely difficult to rewrite. The market around the token is not.
+
+- **Phishing and approvals.** Losses usually come from a fake site, an unread signature, or a leaked key.
+- **Fake contracts.** A copy can use the same art and a different address. The token is real. The collection is not the one you wanted.
+- **Abandoned projects.** The seller can disappear after the mint, keep a function that mints an unlimited supply, or change the metadata later.
+- **Wash trading.** A seller can trade with another address they control and call it demand. One study, through late 2021, flagged about 2% of sales in the largest Ethereum collections and called that a lower bound. A 2024 study of three large marketplaces flagged about 30–40% of trades, and from about a quarter to nearly all of the dollar volume, depending on the marketplace.
+- **No guaranteed buyer.** The token is worth what the next buyer will pay. The protocol does not provide one.
 
 <ButtonLink href="/security/">
   More on security
@@ -103,15 +128,25 @@ Security issues relating to NFTs are most often related to phishing scams, smart
 
 ## Further reading {#further-reading}
 
-- [A beginner's guide to NFTs](https://linda.mirror.xyz/df649d61efb92c910464a4e74ae213c4cab150b9cbcc4b7fb6090fc77881a95d) – _Linda Xie, January 2020_
-- [Etherscan NFT tracker](https://etherscan.io/nft-top-contracts)
-- [Blockscout NFT tracker](https://eth.blockscout.com/tokens?type=ERC-721,ERC-1155,ERC-404)
+- [Non-fungible tokens and intellectual property](https://www.copyright.gov/policy/nft-study/Joint-USPTO-USCO-Report-on-NFTs-and-Intellectual-Property.pdf) – _U.S. Copyright Office and U.S. Patent and Trademark Office, 12-Mar-2024_
+- [EIP-2981: NFT royalty standard](https://eips.ethereum.org/EIPS/eip-2981) – _Ethereum Improvement Proposals_
 - [ERC-721 token standard](/developers/docs/standards/tokens/erc-721/)
 - [ERC-1155 token standard](/developers/docs/standards/tokens/erc-1155/)
-- [NFT Standards wiki](https://nft-standards.gitbook.io/nft-standards-wiki)
-
-## Other resources {#other-resources}
-
+- [Understanding security issues in the NFT ecosystem](https://arxiv.org/abs/2111.08893) – _Das, Bose, Ruaro, Kruegel, and Vigna, ACM CCS 2022_
+- [NFT wash trading: quantifying suspicious behaviour in NFT markets](https://arxiv.org/abs/2202.03866) – _von Wachter, Jensen, Regner, and Ross, 2022_
+- [NFT wash trading: direct vs. indirect estimation](https://arxiv.org/abs/2311.18717) – _Hemenway Falk, Tsoukalas, and Zhang, 2024_
+- [NFT sales hit $25 billion in 2021](https://www.reuters.com/markets/europe/nft-sales-hit-25-billion-2021-growth-shows-signs-slowing-2022-01-10/) – _Reuters, 10-Jan-2022_
+- [2021 Dapp Industry Report](https://dappradar.com/blog/2021-dapp-industry-report) – _DappRadar_
+- [State of the Dapp Industry, Q2 2025](https://dappradar.com/blog/state-of-the-dapp-industry-q2-2025) – _DappRadar_
+- [State of the Dapp Industry, Q3 2025](https://dappradar.com/blog/state-of-the-dapp-industry-q3-2025) – _DappRadar_
+- [OpenSea to end resale royalties policy](https://www.theartnewspaper.com/2023/08/23/opensea-nft-marketplace-ending-resale-royalties-policy) – _The Art Newspaper, 23-Aug-2023_
+- [Proof of Attendance Protocol is shutting down](https://www.theblock.co/news/ecosystems/2026-08-03-proof-of-attendance-protocol-is-shutting-down-after-5-years-410482) – _The Block, 3-Aug-2026_
+- [POAP winds down after five years](https://unchainedcrypto.com/poap-winds-down-after-five-years-and-nearly-7-6-million-onchain-badges/) – _Unchained, 3-Aug-2026_
+- [Ethereum energy consumption](/energy-consumption/)
+- [Attack and defense in proof-of-stake](/developers/docs/consensus-mechanisms/pos/attack-and-defense/)
+- [A beginner's guide to NFTs](https://paragraph.com/@lindaxie/a-beginner-s-guide-to-nfts) – _Linda Xie, 4-Jan-2021_
+- [Etherscan NFT tracker](https://etherscan.io/nft-top-contracts)
+- [Blockscout token tracker](https://eth.blockscout.com/tokens?type=ERC-721,ERC-1155)
 - [NFTScan](https://nftscan.com/)
 
 <Divider />
